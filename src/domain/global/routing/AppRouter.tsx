@@ -1,22 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 import DashboardScreen from "../../dashboard/screen/Dashboard";
-import Header from "../components/Header";
+import AppLayout from "../components/AppLayout";
 import HomeScreen from "../screens/Home";
 
-const AppRouter = () => {
-  return (
-    <BrowserRouter>
-      <Header />
-      <main>
-        <Routes>
-          {/* <Route path="/" element={<HomeScreen />} /> */}
-          {/* Passing the 'index' prop has the effect that passing the 'path="/"' prop */}
-          <Route index element={<HomeScreen />} />
-          <Route path="/dashboard" element={<DashboardScreen />} />
-        </Routes>
-      </main>
-    </BrowserRouter>
-  );
-};
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<AppLayout />}>
+      <Route index element={<HomeScreen />} />
+      <Route path="/dashboard" element={<DashboardScreen />} />
+    </Route>
+  )
+);
+
+const AppRouter = () => <RouterProvider router={router} />;
 
 export default AppRouter;
