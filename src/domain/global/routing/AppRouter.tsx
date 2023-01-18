@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import DashboardScreen from "../../dashboard/screen/Dashboard";
 import AppLayout from "../components/AppLayout";
+import PostsScreen, { postsLoader } from "../Posts/Posts";
 import HomeScreen from "../screens/Home";
 
 const TournamentLayout = () => (
@@ -31,6 +32,8 @@ const router = createBrowserRouter(
           <Route path="active" element={<ActiveScreen />} />
           <Route path="inactive" element={<UnactiveScreen />} />
         </Route>
+
+        <Route path="posts" element={<PostsScreen />} loader={postsLoader} />
 
         {/* Catch All Approach. Can be used for 404 pages*/}
         <Route path="*" element={<CatchAllRoute />} />
