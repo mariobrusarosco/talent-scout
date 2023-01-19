@@ -40,7 +40,7 @@ const router = createBrowserRouter(
         </Route>
 
         <Route path="player">
-          <Route path=":id" element={<PlayerScreen />} />
+          <Route path=":id" element={<PlayerScreen />} loader={playerLoader} />
         </Route>
 
         <Route path="posts" element={<PostsScreen />} loader={postsLoader} />
