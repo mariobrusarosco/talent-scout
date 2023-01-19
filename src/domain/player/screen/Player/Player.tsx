@@ -16,12 +16,21 @@ const PlayerScreen = () => {
 };
 
 export const playerLoader = async ({ params }) => {
-  console.log({ params });
-  const data = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params?.id}`
-  );
+  try {
+    const data = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${params?.id}`
+    );
 
-  return data.json();
+    if (!data?.ok) {
+      throw Error("Unable to find a player");
+    }
+
+    return data.json();
+  } catch (error) {
+    console.log({ error });
+
+    throw error;
+  }
 };
 
 export default PlayerScreen;
