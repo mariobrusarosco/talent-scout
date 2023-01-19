@@ -6,6 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import DashboardScreen from "../../dashboard/screen/Dashboard";
+import PlayerScreen, { playerLoader } from "../../player/screen/Player/Player";
 import AppLayout from "../components/AppLayout";
 import PostsScreen, { postsLoader } from "../Posts/Posts";
 import HomeScreen from "../screens/Home";
@@ -33,13 +34,20 @@ const router = createBrowserRouter(
           <Route path="inactive" element={<UnactiveScreen />} />
         </Route>
 
+        <Route path="tournaments" element={<TournamentLayout />}>
+          <Route path="active" element={<ActiveScreen />} />
+          <Route path="inactive" element={<UnactiveScreen />} />
+        </Route>
+
+        <Route path="player">
+          <Route path=":id" element={<PlayerScreen />} />
+        </Route>
+
         <Route path="posts" element={<PostsScreen />} loader={postsLoader} />
 
         {/* Catch All Approach. Can be used for 404 pages*/}
         <Route path="*" element={<CatchAllRoute />} />
       </Route>
-      {/* Catch All Approach but without AppLayout. Can be used for 404 pages*/}
-      {/* <Route path="*" element={<CatchAllRoute />} /> */}
     </>
   )
 );
