@@ -1,10 +1,11 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useParams } from "react-router-dom";
 
 const PlayerScreen = () => {
   const { id } = useParams();
   const player = useLoaderData();
+  const location = useLocation();
 
-  console.log({ player });
+  console.log(location.pathname.split("/"));
 
   return (
     <section>

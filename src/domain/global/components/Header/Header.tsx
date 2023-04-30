@@ -6,6 +6,7 @@ const Header = () => {
       <nav>
         <Link to="/">Home</Link>
         <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/react-query">React Query</NavLink>
       </nav>
     </header>
   );

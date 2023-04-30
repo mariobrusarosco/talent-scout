@@ -6,11 +6,12 @@ import {
   Outlet,
   useRouteError,
 } from "react-router-dom";
+import ReactQueryCourse from "../../study-and-validation/react-query-udemy-course/ReactQueryCourse";
 import DashboardScreen from "../../dashboard/screen/Dashboard";
 import PlayerScreen, { playerLoader } from "../../player/screen/Player/Player";
 import AppLayout from "../components/AppLayout";
 import PostsScreen, { postsLoader } from "../Posts/Posts";
-import HomeScreen from "../screens/Home";
+import HomeScreen from "../../home";
 
 const TournamentLayout = () => (
   <section>
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<AppLayout />}>
+        <Route path="react-query" element={<ReactQueryCourse />} />
         <Route index element={<HomeScreen />} />
         <Route path="dashboard" element={<DashboardScreen />} />
         <Route path="tournaments" element={<TournamentLayout />}>
