@@ -1,3 +1,11 @@
 export const Button = () => {
-  return <button>Hello World</button>;
+  return (
+    <button
+      style={{
+        background: "red",
+      }}
+    >
+      Hello World
+    </button>
+  );
 };
