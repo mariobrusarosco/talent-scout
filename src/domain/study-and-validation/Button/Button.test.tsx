@@ -45,5 +45,14 @@ describe("Button", () => {
       const button = screen.getByRole("button", { name: "Hello World: 0" });
       expect(button).toHaveTextContent("Hello World: 0");
     });
+
+    it.only("increments when clicked", () => {
+      render(<Button />);
+      const button = screen.getByRole("button", { name: "Hello World: 0" });
+
+      fireEvent.click(button);
+
+      expect(button).toHaveTextContent("Hello World: 1");
+    });
   });
 });
