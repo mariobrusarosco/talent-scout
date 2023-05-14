@@ -36,5 +36,12 @@ describe("Button", () => {
       * 
       * */
     });
+
+    it("renders the expected text context", () => {
+      render(<Button />);
+
+      const button = screen.getByRole("button", { name: "Hello World" });
+      expect(button).toHaveTextContent("Hello World");
+    });
   });
 });
