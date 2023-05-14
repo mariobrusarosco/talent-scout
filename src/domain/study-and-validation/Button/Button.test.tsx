@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("Button", () => {
@@ -8,14 +8,16 @@ describe("Button", () => {
       render(<Button />);
 
       expect(
-        screen.getByRole("button", { name: "Hello World" })
+        screen.getByRole("button", { name: "Hello World: 0" })
       ).toBeInTheDocument();
     });
 
     it("renders the expected styles", () => {
       render(<Button />);
 
-      expect(screen.getByRole("button", { name: "Hello World" })).toHaveStyle({
+      expect(
+        screen.getByRole("button", { name: "Hello World: 0" })
+      ).toHaveStyle({
         "background-color": "red",
       });
       // Notes
@@ -40,8 +42,8 @@ describe("Button", () => {
     it("renders the expected text context", () => {
       render(<Button />);
 
-      const button = screen.getByRole("button", { name: "Hello World" });
-      expect(button).toHaveTextContent("Hello World");
+      const button = screen.getByRole("button", { name: "Hello World: 0" });
+      expect(button).toHaveTextContent("Hello World: 0");
     });
   });
 });
