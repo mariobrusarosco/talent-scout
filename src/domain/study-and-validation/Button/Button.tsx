@@ -1,20 +1,18 @@
 import { useCallback, useState } from "react";
 
 export const Button = () => {
-  const [counter, setCounter] = useState(0);
-
-  const handleClick = useCallback(() => {
-    setCounter((prevState) => ++prevState);
-  }, []);
+  // Internal State
+  const [disabled, setDisabled] = useState(false);
 
   return (
     <button
+      disabled={disabled}
       style={{
         background: "red",
       }}
-      onClick={handleClick}
+      onClick={() => setDisabled((prevState) => !prevState)}
     >
-      Hello World: {counter}
+      Hello World
     </button>
   );
 };

@@ -48,14 +48,14 @@ describe("Button", () => {
       expect(button).toHaveTextContent("Hello World");
     });
 
-    it("gets disabled", () => {
-      // TODO use rerender here!
+    it("gets disabled by click", () => {
       renderComponent();
       const button = screen.getByRole("button", { name: "Hello World" });
 
-      fireEvent.click(button);
+      expect(button).toBeEnabled();
 
-      expect(button).toHaveTextContent("Hello World");
+      fireEvent.click(button);
+      expect(button).toBeDisabled();
     });
   });
 });
