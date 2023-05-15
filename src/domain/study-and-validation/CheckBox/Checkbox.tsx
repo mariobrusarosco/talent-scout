@@ -1,15 +1,13 @@
 import { useState } from "react";
 
-export const Checkbox = () => {
-  const [checked, setChecked] = useState(false);
-
+export const Checkbox = ({ handleChange, checked }) => {
   return (
     <div>
       <label htmlFor="check">Checkbox</label>
       <input
         id="check"
         type="checkbox"
-        onChange={(e: any) => setChecked(e.target.checked)}
+        onChange={handleChange}
         checked={checked}
       />
     </div>
