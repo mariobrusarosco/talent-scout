@@ -8,9 +8,10 @@ import type { JestConfigWithTsJest } from "ts-jest";
 
 const jestConfig: JestConfigWithTsJest = {
   preset: "ts-jest/presets/js-with-ts-esm",
-  rootDir: "../../../src",
+  rootDir: "../../..",
   testMatch: ["**/*.test.ts?(x)", "**/__fixtures__/*.test.ts?(x)"],
   testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/config/tests/jest/test-env-setup.ts"],
 };
 
 export default jestConfig;

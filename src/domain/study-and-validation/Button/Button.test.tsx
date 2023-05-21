@@ -1,6 +1,5 @@
 import { Button } from "./Button";
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 const renderComponent = (props?: any) => {
   return render(<Button onClick={jest.fn()} {...props} />);

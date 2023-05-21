@@ -1,6 +1,5 @@
 import { fireEvent, screen, render } from "@testing-library/react";
 import { Checkbox } from "./Checkbox";
-import "@testing-library/jest-dom/extend-expect";
 
 const renderElement = (props?: any) => {
   return render(<Checkbox {...props} />);
